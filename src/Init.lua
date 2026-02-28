@@ -58,7 +58,7 @@ local function _req(string)
 	return loadstring(game:HttpGet(string))()
 end
 
-local IDE = loadstring(game:HttpGet("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/lib/ide.lua"))()  -- require("@lib/ide.lua")
+local IDE = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/lib/ide.lua")  -- require("@lib/ide.lua")
 local Wrappers = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/classes/Wrappers.lua")
 local Animation = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/classes/Animations.lua")
 local Signaling = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/classes/Signaling.lua")
