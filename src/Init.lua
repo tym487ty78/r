@@ -53,21 +53,26 @@ local ReGui = {
 }
 
 --// Modules
-local IDE = require("@lib/ide.lua")
-local Wrappers = require("@classes/Wrappers.lua")
-local Animation = require("@classes/Animations.lua")
-local Signaling = require("@classes/Signaling.lua")
-ReGui.DemoWindow = require("@src/Demo Window.lua")
+
+local function _req(string)
+	return loadstring(game:HttpGet(string))()
+end
+
+local IDE = loadstring(game:HttpGet("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/lib/ide.lua"))()  -- require("@lib/ide.lua")
+local Wrappers = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/classes/Wrappers.lua")
+local Animation = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/classes/Animations.lua")
+local Signaling = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/classes/Signaling.lua")
+ReGui.DemoWindow = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/Demo Window.lua")
 ReGui.Services = Wrappers.Services
 ReGui.Animation = Animation
 
 --// Configurations
-ReGui.Icons = require("@config/Icons.lua")
-ReGui.Accent = require("@config/Accent.lua")
-ReGui.ThemeConfigs = require("@config/Themes.lua")
-ReGui.ElementFlags = require("@config/Flags.lua")
+ReGui.Icons = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/configurations/Icons.lua")
+ReGui.Accent = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/configurations/Accent.lua")
+ReGui.ThemeConfigs = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/configurations/Themes.lua")
+ReGui.ElementFlags = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/configurations/Flags.lua")
 
-local Tags = require("@config/Tagging.lua")
+local Tags = _req("https://raw.githubusercontent.com/tym487ty78/r/refs/heads/main/src/configurations/Tagging.lua")
 ReGui.ElementColors = Tags.Coloring
 ReGui.Animations = Tags.Animations
 ReGui.Styles = Tags.Styles
